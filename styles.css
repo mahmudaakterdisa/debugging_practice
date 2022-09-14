@@ -151,12 +151,10 @@ button {
 }
 
 #histories {
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  justify-content: space-around;
+
 }
 
 .card {
@@ -193,9 +191,22 @@ button {
   .box-container {
     padding: 0 20px;
     width: 100%;
+
+
   }
 
   .card {
     flex-direction: column;
+  }
+
+}
+
+/* for grid card only work for large screen */
+@media only screen and (min-width: 1024px) {
+  #histories {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 }
