@@ -46,14 +46,17 @@ const typeController = (e) => {
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
+
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
     errorCount++;
   }
 
   // check if given question text is equal to user typed text
   if (questionText === userText) {
+
     gameOver();
   }
+
 };
 
 const validate = (key) => {
@@ -106,24 +109,29 @@ const start = () => {
   if (startTime) return;
 
   let count = 3;
+
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
+
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
     if (count < 0) {
-      clearInterval(startCountdown);
-      startTime = new Date().getTime();
+
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
       countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
+      clearInterval(startCountdown);
+
+      startTime = new Date().getTime();
 
     }
-
     count--;
+
   }, 1000);
+  countdownOverlay.innerText = "";
 };
 
 // START Countdown
